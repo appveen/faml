@@ -15,7 +15,7 @@ program
 
 if (!program.file && !program.directory) {
     console.log('Please provide a file or directory');
-    console.log('fill-yaml --help for more info');
+    console.log('faml --help for more info');
     process.exit(0);
 }
 
