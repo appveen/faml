@@ -1,0 +1,23 @@
+{
+  "name": "faml",
+  "version": "1.0.0",
+  "description": "A CLI tool to fill yaml placeholder",
+  "main": "main.js",
+  "bin": {
+    "faml": "main.js"
+  },
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Jugnu Agrawal",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.20.0",
+    "inquirer": "^6.5.0",
+    "shelljs": "^0.8.3"
+  }
+}
