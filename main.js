@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const shell = require('shelljs');
-const inquirer = require('inquirer');
-const program = require('commander');
+var fs = require('fs');
+var path = require('path');
+var shell = require('shelljs');
+var inquirer = require('inquirer');
+var program = require('commander');
 
 program
     .version('1.0.0', '-v, --version')
@@ -18,12 +18,12 @@ if (!program.file && !program.directory) {
     process.exit(0);
 }
 
-const location = path.join(process.cwd(), path.relative(process.cwd(), program.file || program.directory));
+var location = path.join(process.cwd(), path.relative(process.cwd(), program.file || program.directory));
 if (program.file) {
     program.filePath = location;
     readFile(program);
 } else if (program.directory) {
-    const files = fs.readdirSync(location, 'utf8');
+    var files = fs.readdirSync(location, 'utf8');
     files.forEach(file => {
         if (file.endsWith('.yaml')) {
             answers.filePath = path.join(location, file);
@@ -33,15 +33,15 @@ if (program.file) {
 }
 
 function readFile(answers) {
-    const content = fs.readFileSync(answers.filePath, 'utf8');
-    const regex = new RegExp(`${answers.prefix}[a-zA-Z0-9_]*${answers.suffix}`, 'g');
-    const matches = content.match(regex);
+    var content = fs.readFileSync(answers.filePath, 'utf8');
+    var regex = new RegExp(`${answers.prefix}[a-zA-Z0-9_]*${answers.suffix}`, 'g');
+    var matches = content.match(regex);
     if (!matches || matches.length == 0) {
         console.log('No Placeholders found');
         process.exit(0);
     }
-    const placeholders = matches.filter((e, i, a) => i === a.indexOf(e));
-    const questions = [];
+    var placeholders = matches.filter((e, i, a) => i === a.indexOf(e));
+    var questions = [];
     placeholders.forEach(e => {
         questions.push({
             name: e,
