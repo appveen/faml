@@ -1,5 +1,5 @@
 {
-  "name": "faml",
+  "name": "@appveen/faml",
   "version": "1.0.0",
   "description": "A CLI tool to fill yaml placeholder",
   "main": "main.js",
